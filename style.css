@@ -6,15 +6,21 @@
   --shadow2: 0 16px 34px rgba(0,0,0,.10);
 }
 
+/* HARD RESET – prevents background image bugs */
+html, body{
+  background:#ffffff !important;
+  background-image:none !important;
+}
+
 *{ box-sizing:border-box; }
 
 body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   color:var(--ink);
-  background:var(--bg);
 }
 
+/* WRAP */
 .wrap{
   width:min(680px, calc(100% - 32px));
   margin:0 auto;
@@ -36,30 +42,23 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
-  text-decoration:none;
-  color:var(--ink);
   background:#fff;
 }
 
 .logo img{
-  max-width: 70%;
-  max-height: 70%;
-  object-fit: contain;
-}
-
-.logoText{
-  font-weight:800;
-  letter-spacing:.10em;
+  width:70%;
+  height:70%;
+  object-fit:contain;
+  display:block;
 }
 
 /* BIO */
 .bio{
-  border:none;
   border-radius:18px;
   padding:16px 18px;
-  background:#fff;
+  background:rgba(255,255,255,0.98);
   box-shadow:var(--shadow);
-  margin:0 auto 14px;
+  margin-bottom:14px;
 }
 
 .bio p{
@@ -69,48 +68,43 @@ body{
   text-align:center;
 }
 
-/* EMAIL (click-to-copy, no extra text) */
+/* EMAIL */
 .copyRow{
   display:flex;
   justify-content:center;
-  margin: 0 auto 14px;
+  margin-bottom:14px;
 }
 
 .copyEmail{
   width:min(540px, 100%);
+  padding:12px 16px;
   border:none;
   border-radius:18px;
-  padding:12px 16px;
   background:#fff;
   box-shadow:var(--shadow);
   cursor:pointer;
   text-align:center;
-  color:var(--ink);
   position:relative;
 }
 
-.copyEmail:active{ transform: translateY(1px); }
+.copyEmail:active{
+  transform:translateY(1px);
+}
 
 .copyValue{
-  font-weight:650;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight:600;
 }
 
-.copyEmail.copied{
-  box-shadow: var(--shadow2);
-}
-
-/* tiny toast that appears briefly */
 .copyToast{
   position:absolute;
   left:50%;
   top:50%;
-  transform: translate(-50%, -50%);
-  background:#fff;
+  transform:translate(-50%,-50%);
+  padding:6px 12px;
   border:2px solid var(--ink);
   border-radius:999px;
-  padding:6px 10px;
+  background:#fff;
   font-weight:800;
   opacity:0;
   pointer-events:none;
@@ -125,7 +119,7 @@ body{
   display:flex;
   justify-content:center;
   gap:12px;
-  margin: 2px 0 22px;
+  margin-bottom:22px;
 }
 
 .iconBtn{
@@ -135,25 +129,20 @@ body{
   border:2px solid var(--ink);
   display:grid;
   place-items:center;
-  text-decoration:none;
-  color:var(--ink);
   background:#fff;
-  font-weight:850;
-  letter-spacing:.02em;
-  box-shadow: var(--shadow);
-  transition: transform .12s ease, box-shadow .12s ease;
+  color:var(--ink);
+  text-decoration:none;
+  font-weight:800;
+  box-shadow:var(--shadow);
+  transition:.12s;
 }
 
 .iconBtn:hover{
-  transform: translateY(-2px);
-  box-shadow: var(--shadow2);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow2);
 }
 
-.iconBtn:active{
-  transform: translateY(0px);
-}
-
-/* MAIN LINKS */
+/* LINKS */
 .links{
   display:flex;
   flex-direction:column;
@@ -162,29 +151,20 @@ body{
 }
 
 .block{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
   padding:14px 30px;
   border:3px solid var(--ink);
   border-radius:28px;
   background:#fff;
   color:var(--ink);
   text-decoration:none;
-  font-weight:850;
-  font-size:1.05rem;
-  box-shadow: var(--shadow);
-  white-space:nowrap;
-  transition: transform .12s ease, box-shadow .12s ease;
+  font-weight:800;
+  box-shadow:var(--shadow);
+  transition:.12s;
 }
 
 .block:hover{
-  transform: translateY(-2px);
-  box-shadow: var(--shadow2);
-}
-
-.block:active{
-  transform: translateY(0);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow2);
 }
 
 /* FOOTER */
@@ -194,10 +174,9 @@ body{
   color:var(--muted);
 }
 
-/* Mobile */
-@media (max-width: 420px){
+/* MOBILE */
+@media (max-width:420px){
   .logo{ width:150px; height:150px; }
   .wrap{ padding:34px 0 48px; }
   .block{ padding:14px 22px; }
-  .copyEmail{ width: min(520px, 100%); }
 }
