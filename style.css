@@ -1,0 +1,102 @@
+:root{
+  --bg:#fff;
+  --ink:#111;
+  --muted:#555;
+  --border:rgba(0,0,0,.14);
+  --shadow:0 10px 24px rgba(0,0,0,.08);
+  --radius:18px;
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color:var(--ink);
+  background:var(--bg);
+}
+
+.wrap{
+  width:min(720px, calc(100% - 32px));
+  margin:0 auto;
+  padding:34px 0 50px;
+}
+
+.header{ display:flex; justify-content:center; margin-bottom:18px; }
+
+.logo{
+  width:220px;
+  height:160px;
+  border:3px solid var(--ink);
+  border-radius:26px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  color:var(--ink);
+}
+
+.logoText{ font-weight:800; letter-spacing:.08em; }
+
+.bio{
+  border:2px solid var(--border);
+  border-radius:var(--radius);
+  padding:14px 16px;
+  box-shadow:var(--shadow);
+  margin-bottom:14px;
+}
+
+.bio p{ margin:0; line-height:1.45; color:var(--muted); }
+
+.contact{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.pill{
+  border:2px solid var(--ink);
+  border-radius:999px;
+  padding:10px 14px;
+  text-decoration:none;
+  color:var(--ink);
+  font-weight:650;
+}
+
+.socials{ display:flex; gap:10px; align-items:center; }
+
+.iconBtn{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  border:2px solid var(--ink);
+  display:grid;
+  place-items:center;
+  text-decoration:none;
+  color:var(--ink);
+}
+
+.iconText{ font-weight:800; }
+
+.links{ display:flex; flex-direction:column; gap:14px; }
+
+.block{
+  border:3px solid var(--ink);
+  border-radius:22px;
+  padding:18px;
+  text-decoration:none;
+  color:var(--ink);
+  box-shadow:var(--shadow);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+
+.block:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 28px rgba(0,0,0,.12);
+}
+
+.blockTitle{ display:block; font-weight:800; font-size:1.1rem; }
+.blockHint{ display:block; margin-top:4px; color:var(--muted); font-size:.95rem; }
+
+.footer{ margin-top:22px; text-align:center; color:var(--muted); }
