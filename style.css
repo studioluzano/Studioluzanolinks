@@ -20,16 +20,15 @@ body{
   padding:34px 0 50px;
 }
 
-/* LOGO (true square) */
+/* LOGO */
 .header{
   display:flex;
   justify-content:center;
   margin-bottom:16px;
 }
-
 .logo{
   width:160px;
-  height:160px;            /* square */
+  height:160px;
   border:3px solid var(--ink);
   border-radius:26px;
   display:flex;
@@ -39,47 +38,75 @@ body{
   color:var(--ink);
   background:#fff;
 }
-
 .logoText{
   font-weight:800;
   letter-spacing:.08em;
 }
 
-/* BIO: centered text, NO border */
+/* BIO */
 .bio{
-  border:none;             /* remove border */
+  border:none;
   border-radius:18px;
   padding:14px 16px;
   background:#fff;
   box-shadow:var(--shadow);
   margin:0 auto 14px;
 }
-
 .bio p{
   margin:0;
   line-height:1.45;
   color:var(--muted);
-  text-align:center;       /* center justified */
+  text-align:center;
 }
 
-/* CONTACT */
+/* CLICK-TO-COPY EMAIL (text box) */
+.copyRow{
+  display:flex;
+  justify-content:center;
+  margin: 0 auto 10px;
+}
+
+.copyEmail{
+  width: min(520px, 100%);
+  border:none;
+  border-radius:16px;
+  padding:12px 14px;
+  background:#fff;
+  box-shadow:var(--shadow);
+  color:var(--ink);
+  cursor:pointer;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+}
+
+.copyEmail:active{ transform: translateY(1px); }
+
+.copyLabel{
+  font-weight:700;
+  letter-spacing:.02em;
+}
+
+.copyValue{
+  font-weight:650;
+}
+
+.copyHint{
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+.copyEmail.copied .copyHint{
+  color: var(--ink);
+  font-weight:700;
+}
+
+/* SOCIALS */
 .contact{
   display:flex;
-  align-items:center;
-  justify-content:center;  /* centers the row */
-  gap:12px;
-  flex-wrap:wrap;
+  justify-content:center;
   margin-bottom:18px;
-}
-
-.pill{
-  border:2px solid var(--ink);
-  border-radius:999px;
-  padding:10px 14px;
-  text-decoration:none;
-  color:var(--ink);
-  font-weight:650;
-  background:#fff;
 }
 
 .socials{
@@ -107,21 +134,24 @@ body{
   display:flex;
   flex-direction:column;
   gap:14px;
+  align-items:center; /* centers each block */
 }
 
-/* left label + centered rectangle */
+/* Smaller + centered blocks */
 .block{
+  width: min(640px, 100%); /* smaller than full width */
   border:3px solid var(--ink);
   border-radius:26px;
-  padding:16px 18px;
+  padding:14px 18px;
   text-decoration:none;
   color:var(--ink);
   background:#fff;
   box-shadow:var(--shadow);
+
   display:grid;
   grid-template-columns: 160px 1fr;
   align-items:center;
-  min-height:76px;
+  min-height:70px;
 }
 
 .blockTitle{
@@ -130,21 +160,13 @@ body{
   line-height:1.1;
 }
 
-/* the centered “empty rectangle” you drew */
+/* centered rectangle */
 .blockMid{
   height:34px;
   width:min(340px, 100%);
   border:3px solid var(--ink);
   border-radius:12px;
   justify-self:center;
-}
-
-.block:hover{
-  transform:translateY(-2px);
-}
-
-.block:active{
-  transform:translateY(0px);
 }
 
 /* FOOTER */
@@ -154,14 +176,17 @@ body{
   color:var(--muted);
 }
 
-/* Mobile tweaks */
+/* Mobile */
 @media (max-width: 520px){
   .block{
     grid-template-columns: 1fr;
     gap:10px;
-    text-align:left;
   }
   .blockMid{
-    justify-self:start; /* looks nicer stacked */
+    justify-self:start;
+  }
+  .copyEmail{
+    justify-content:center;
+    flex-wrap:wrap;
   }
 }
