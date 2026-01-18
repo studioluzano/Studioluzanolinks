@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Studio Luzano — Links</title>
+  <meta name="description" content="Portfolio, shop links, and newsletter." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="wrap">
+
+    <!-- LOGO -->
+    <header class="header">
+      <!-- Replace with an image if you want: <img src="logo.png" alt="Studio Luzano"> -->
+      <a class="logo" href="#" aria-label="Home">
+        <span class="logoText">LOGO</span>
+      </a>
+    </header>
+
+    <!-- BIO -->
+    <section class="bio">
+      <p>
+        Hi — I’m Antonio (Studio Luzano). I make illustration, visdev & paintings.
+        Here are the best places to see my work and support it.
+      </p>
+    </section>
+
+    <!-- EMAIL + SOCIALS -->
+    <section class="contact">
+      <a class="pill" href="mailto:YOUR_EMAIL_HERE">email</a>
+
+      <div class="socials" aria-label="Social links">
+        <a class="iconBtn" href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
+          <span class="iconText">IG</span>
+        </a>
+        <a class="iconBtn" href="https://www.behance.net/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Behance">
+          <span class="iconText">Be</span>
+        </a>
+        <a class="iconBtn" href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <span class="iconText">in</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- MAIN LINKS (4 BLOCKS) -->
+    <section class="links" aria-label="Main links">
+      <a class="block" href="https://antonioluzano.com" target="_blank" rel="noopener">
+        <span class="blockTitle">Portfolio</span>
+        <span class="blockHint">Selected work</span>
+      </a>
+
+      <a class="block" href="https://holvi.com/shop/studioluzano/" target="_blank" rel="noopener">
+        <span class="blockTitle">Originals for sale</span>
+        <span class="blockHint">One-of-one paintings</span>
+      </a>
+
+      <a class="block" href="https://www.inprnt.com/profile/studioluzano/" target="_blank" rel="noopener">
+        <span class="blockTitle">Print shop</span>
+        <span class="blockHint">Art prints</span>
+      </a>
+
+      <a class="block" href="YOUR_NEWSLETTER_LINK" target="_blank" rel="noopener">
+        <span class="blockTitle">Newsletter</span>
+        <span class="blockHint">Studio notes & new work</span>
+      </a>
+    </section>
+
+    <footer class="footer">
+      <small>© <span id="year"></span> Studio Luzano</small>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
