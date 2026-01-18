@@ -26,12 +26,11 @@
       </p>
     </section>
 
-    <!-- CLICK-TO-COPY EMAIL -->
+    <!-- CLICK-TO-COPY EMAIL (no extra text) -->
     <section class="copyRow" aria-label="Email">
-      <button class="copyEmail" id="copyEmailBtn" type="button" data-email="antonioluzano@gmail.com">
-        <span class="copyLabel">email</span>
+      <button class="copyEmail" id="copyEmailBtn" type="button" data-email="antonioluzano@gmail.com" aria-label="Copy email address">
         <span class="copyValue">antonioluzano@gmail.com</span>
-        <span class="copyHint" id="copyHint">click to copy</span>
+        <span class="copyToast" id="copyToast" aria-hidden="true">copied ✓</span>
       </button>
     </section>
 
@@ -48,6 +47,11 @@
     <!-- MAIN LINKS -->
     <section class="links" aria-label="Main links">
       <a class="block" href="https://antonioluzano.com" target="_blank" rel="noopener">Portfolio</a>
+
+      <a class="block" href="https://antonioluzano.com/projects/studio-luzano-koulu.html" target="_blank" rel="noopener">
+        Private Classes
+      </a>
+
       <a class="block" href="https://holvi.com/shop/studioluzano/" target="_blank" rel="noopener">Originals for sale</a>
       <a class="block" href="https://www.inprnt.com/profile/studioluzano/" target="_blank" rel="noopener">Print shop</a>
       <a class="block" href="https://studioluzano.substack.com/?utm_source=site_nav" target="_blank" rel="noopener">Newsletter</a>
@@ -63,22 +67,22 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const btn = document.getElementById("copyEmailBtn");
-    const hint = document.getElementById("copyHint");
+    const toast = document.getElementById("copyToast");
 
     btn.addEventListener("click", async () => {
       const email = btn.getAttribute("data-email");
 
       try {
         await navigator.clipboard.writeText(email);
-        hint.textContent = "copied ✓";
         btn.classList.add("copied");
+        toast.classList.add("show");
+
         setTimeout(() => {
-          hint.textContent = "click to copy";
+          toast.classList.remove("show");
           btn.classList.remove("copied");
-        }, 1200);
+        }, 900);
       } catch (e) {
-        hint.textContent = "copy manually";
-        setTimeout(() => (hint.textContent = "click to copy"), 1400);
+        // fallback: do nothing visible (still clickable)
       }
     });
   </script>
