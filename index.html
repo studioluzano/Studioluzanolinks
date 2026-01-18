@@ -13,7 +13,6 @@
 
     <!-- LOGO -->
     <header class="header">
-      <!-- Replace LOGO with an image later if you want -->
       <a class="logo" href="#" aria-label="Home">
         <span class="logoText">LOGO</span>
       </a>
@@ -30,11 +29,9 @@
     <!-- CLICK-TO-COPY EMAIL -->
     <section class="copyRow" aria-label="Email">
       <button class="copyEmail" id="copyEmailBtn" type="button" data-email="antonioluzano@gmail.com">
-        <span class="copyText">
-          <span class="copyLabel">email:</span>
-          <span class="copyValue">antonioluzano@gmail.com</span>
-          <span class="copyHint" id="copyHint">click to copy</span>
-        </span>
+        <span class="copyLabel">email</span>
+        <span class="copyValue">antonioluzano@gmail.com</span>
+        <span class="copyHint" id="copyHint">click to copy</span>
       </button>
     </section>
 
@@ -43,12 +40,12 @@
       <a class="iconBtn" href="https://instagram.com/antonioluzano" target="_blank" rel="noopener" aria-label="Instagram">
         IG
       </a>
-      <a class="iconBtn" href="https://behance.net/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Behance">
-        Be
+      <a class="iconBtn" href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="LinkedIn">
+        in
       </a>
     </section>
 
-    <!-- MAIN LINKS (compact + centered) -->
+    <!-- MAIN LINKS -->
     <section class="links" aria-label="Main links">
       <a class="block" href="https://antonioluzano.com" target="_blank" rel="noopener">Portfolio</a>
       <a class="block" href="https://holvi.com/shop/studioluzano/" target="_blank" rel="noopener">Originals for sale</a>
@@ -63,10 +60,8 @@
   </main>
 
   <script>
-    // year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // click-to-copy email
     const btn = document.getElementById("copyEmailBtn");
     const hint = document.getElementById("copyHint");
 
@@ -75,14 +70,13 @@
 
       try {
         await navigator.clipboard.writeText(email);
-        hint.textContent = "copied!";
+        hint.textContent = "copied ✓";
         btn.classList.add("copied");
         setTimeout(() => {
           hint.textContent = "click to copy";
           btn.classList.remove("copied");
         }, 1200);
       } catch (e) {
-        // Fallback: show a hint if clipboard is blocked
         hint.textContent = "copy manually";
         setTimeout(() => (hint.textContent = "click to copy"), 1400);
       }
