@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Studio Luzano — Links</title>
-  <meta name="description" content="Portfolio, shop links, and newsletter." />
+  <meta name="description" content="Studio Luzano links: portfolio, originals, prints, newsletter." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -13,6 +13,7 @@
 
     <!-- LOGO -->
     <header class="header">
+      <!-- Replace LOGO with an image later if you want -->
       <a class="logo" href="#" aria-label="Home">
         <span class="logoText">LOGO</span>
       </a>
@@ -29,48 +30,30 @@
     <!-- CLICK-TO-COPY EMAIL -->
     <section class="copyRow" aria-label="Email">
       <button class="copyEmail" id="copyEmailBtn" type="button" data-email="YOUR_EMAIL_HERE">
-        <span class="copyLabel">email:</span>
-        <span class="copyValue">YOUR_EMAIL_HERE</span>
-        <span class="copyHint" id="copyHint">click to copy</span>
+        <span class="copyText">
+          <span class="copyLabel">email:</span>
+          <span class="copyValue">YOUR_EMAIL_HERE</span>
+          <span class="copyHint" id="copyHint">click to copy</span>
+        </span>
       </button>
     </section>
 
-    <!-- SOCIALS (2 ICONS) -->
-    <section class="contact" aria-label="Socials">
-      <div class="socials" aria-label="Social links">
-        <a class="iconBtn" href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
-          <span class="iconText">IG</span>
-        </a>
-        <a class="iconBtn" href="https://behance.net/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Behance">
-          <span class="iconText">Be</span>
-        </a>
-        <!-- removed one icon (LinkedIn). If you want it back, add it here. -->
-      </div>
+    <!-- SOCIALS (2) -->
+    <section class="socialRow" aria-label="Socials">
+      <a class="iconBtn" href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
+        IG
+      </a>
+      <a class="iconBtn" href="https://behance.net/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Behance">
+        Be
+      </a>
     </section>
 
-    <!-- MAIN LINKS -->
+    <!-- MAIN LINKS (compact + centered) -->
     <section class="links" aria-label="Main links">
-
-      <a class="block" href="https://antonioluzano.com" target="_blank" rel="noopener">
-        <span class="blockTitle">Portfolio</span>
-        <span class="blockMid" aria-hidden="true"></span>
-      </a>
-
-      <a class="block" href="https://holvi.com/shop/studioluzano/" target="_blank" rel="noopener">
-        <span class="blockTitle">Originals for sale</span>
-        <span class="blockMid" aria-hidden="true"></span>
-      </a>
-
-      <a class="block" href="https://www.inprnt.com/profile/studioluzano/" target="_blank" rel="noopener">
-        <span class="blockTitle">Print shop</span>
-        <span class="blockMid" aria-hidden="true"></span>
-      </a>
-
-      <a class="block" href="YOUR_NEWSLETTER_LINK" target="_blank" rel="noopener">
-        <span class="blockTitle">Newsletter</span>
-        <span class="blockMid" aria-hidden="true"></span>
-      </a>
-
+      <a class="block" href="https://antonioluzano.com" target="_blank" rel="noopener">Portfolio</a>
+      <a class="block" href="https://holvi.com/shop/studioluzano/" target="_blank" rel="noopener">Originals for sale</a>
+      <a class="block" href="https://www.inprnt.com/profile/studioluzano/" target="_blank" rel="noopener">Print shop</a>
+      <a class="block" href="YOUR_NEWSLETTER_LINK" target="_blank" rel="noopener">Newsletter</a>
     </section>
 
     <footer class="footer">
@@ -89,6 +72,7 @@
 
     btn.addEventListener("click", async () => {
       const email = btn.getAttribute("data-email");
+
       try {
         await navigator.clipboard.writeText(email);
         hint.textContent = "copied!";
@@ -98,8 +82,8 @@
           btn.classList.remove("copied");
         }, 1200);
       } catch (e) {
-        // fallback if clipboard API is blocked
-        hint.textContent = "select & copy";
+        // Fallback: show a hint if clipboard is blocked
+        hint.textContent = "copy manually";
         setTimeout(() => (hint.textContent = "click to copy"), 1400);
       }
     });
