@@ -1,12 +1,12 @@
 :root{
   --bg:#fff;
   --ink:#111;
-  --muted:#555;
+  --muted:#666;
   --shadow:0 10px 24px rgba(0,0,0,.08);
-  --radius:22px;
 }
 
 *{ box-sizing:border-box; }
+
 body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -26,6 +26,7 @@ body{
   justify-content:center;
   margin-bottom:16px;
 }
+
 .logo{
   width:160px;
   height:160px;
@@ -38,6 +39,7 @@ body{
   color:var(--ink);
   background:#fff;
 }
+
 .logoText{
   font-weight:800;
   letter-spacing:.08em;
@@ -50,8 +52,9 @@ body{
   padding:14px 16px;
   background:#fff;
   box-shadow:var(--shadow);
-  margin:0 auto 14px;
+  margin:0 auto 12px;
 }
+
 .bio p{
   margin:0;
   line-height:1.45;
@@ -59,11 +62,11 @@ body{
   text-align:center;
 }
 
-/* CLICK-TO-COPY EMAIL (text box) */
+/* COPY EMAIL (centered) */
 .copyRow{
   display:flex;
   justify-content:center;
-  margin: 0 auto 10px;
+  margin: 0 auto 12px;
 }
 
 .copyEmail{
@@ -73,19 +76,20 @@ body{
   padding:12px 14px;
   background:#fff;
   box-shadow:var(--shadow);
-  color:var(--ink);
   cursor:pointer;
-  display:flex;
-  gap:10px;
-  align-items:center;
-  justify-content:center;
+  text-align:center;
+  color:var(--ink);
 }
 
 .copyEmail:active{ transform: translateY(1px); }
 
+.copyText{
+  display:inline-block;
+}
+
 .copyLabel{
-  font-weight:700;
-  letter-spacing:.02em;
+  font-weight:800;
+  margin-right:6px;
 }
 
 .copyValue{
@@ -93,26 +97,22 @@ body{
 }
 
 .copyHint{
+  margin-left:8px;
   color:var(--muted);
   font-size:.95rem;
 }
 
 .copyEmail.copied .copyHint{
-  color: var(--ink);
-  font-weight:700;
+  color:var(--ink);
+  font-weight:800;
 }
 
 /* SOCIALS */
-.contact{
+.socialRow{
   display:flex;
   justify-content:center;
-  margin-bottom:18px;
-}
-
-.socials{
-  display:flex;
   gap:10px;
-  align-items:center;
+  margin-bottom:20px;
 }
 
 .iconBtn{
@@ -125,68 +125,45 @@ body{
   text-decoration:none;
   color:var(--ink);
   background:#fff;
+  font-weight:800;
 }
 
-.iconText{ font-weight:800; }
-
-/* MAIN LINKS */
+/* MAIN LINKS (compact, centered) */
 .links{
   display:flex;
   flex-direction:column;
   gap:14px;
-  align-items:center; /* centers each block */
+  align-items:center;
 }
 
-/* Smaller + centered blocks */
 .block{
-  width: min(640px, 100%); /* smaller than full width */
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 28px;
   border:3px solid var(--ink);
   border-radius:26px;
-  padding:14px 18px;
-  text-decoration:none;
-  color:var(--ink);
   background:#fff;
-  box-shadow:var(--shadow);
-
-  display:grid;
-  grid-template-columns: 160px 1fr;
-  align-items:center;
-  min-height:70px;
-}
-
-.blockTitle{
+  color:var(--ink);
+  text-decoration:none;
   font-weight:800;
   font-size:1.05rem;
-  line-height:1.1;
+  box-shadow:var(--shadow);
+  white-space:nowrap;
 }
 
-/* centered rectangle */
-.blockMid{
-  height:34px;
-  width:min(340px, 100%);
-  border:3px solid var(--ink);
-  border-radius:12px;
-  justify-self:center;
-}
+.block:hover{ transform: translateY(-2px); }
+.block:active{ transform: translateY(0); }
 
 /* FOOTER */
 .footer{
-  margin-top:20px;
+  margin-top:22px;
   text-align:center;
   color:var(--muted);
 }
 
 /* Mobile */
-@media (max-width: 520px){
-  .block{
-    grid-template-columns: 1fr;
-    gap:10px;
-  }
-  .blockMid{
-    justify-self:start;
-  }
-  .copyEmail{
-    justify-content:center;
-    flex-wrap:wrap;
-  }
+@media (max-width: 420px){
+  .logo{ width:150px; height:150px; }
+  .block{ padding:14px 22px; }
 }
