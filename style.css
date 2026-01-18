@@ -1,8 +1,9 @@
 :root{
-  --bg:#fff;
-  --ink:#111;
-  --muted:#666;
-  --shadow:0 10px 24px rgba(0,0,0,.08);
+  --bg:#ffffff;
+  --ink:#111111;
+  --muted:#666666;
+  --shadow: 0 10px 24px rgba(0,0,0,.08);
+  --shadow2: 0 16px 34px rgba(0,0,0,.10);
 }
 
 *{ box-sizing:border-box; }
@@ -15,23 +16,23 @@ body{
 }
 
 .wrap{
-  width:min(720px, calc(100% - 32px));
+  width:min(680px, calc(100% - 32px));
   margin:0 auto;
-  padding:34px 0 50px;
+  padding:42px 0 56px;
 }
 
 /* LOGO */
 .header{
   display:flex;
   justify-content:center;
-  margin-bottom:16px;
+  margin-bottom:18px;
 }
 
 .logo{
   width:160px;
   height:160px;
   border:3px solid var(--ink);
-  border-radius:26px;
+  border-radius:28px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -42,64 +43,70 @@ body{
 
 .logoText{
   font-weight:800;
-  letter-spacing:.08em;
+  letter-spacing:.10em;
 }
 
 /* BIO */
 .bio{
   border:none;
   border-radius:18px;
-  padding:14px 16px;
+  padding:16px 18px;
   background:#fff;
   box-shadow:var(--shadow);
-  margin:0 auto 12px;
+  margin:0 auto 14px;
 }
 
 .bio p{
   margin:0;
-  line-height:1.45;
+  line-height:1.5;
   color:var(--muted);
   text-align:center;
 }
 
-/* COPY EMAIL (centered) */
+/* COPY EMAIL */
 .copyRow{
   display:flex;
   justify-content:center;
-  margin: 0 auto 12px;
+  margin: 0 auto 14px;
 }
 
 .copyEmail{
-  width: min(520px, 100%);
+  width:min(540px, 100%);
   border:none;
-  border-radius:16px;
-  padding:12px 14px;
+  border-radius:18px;
+  padding:12px 16px;
   background:#fff;
   box-shadow:var(--shadow);
   cursor:pointer;
   text-align:center;
   color:var(--ink);
+  display:flex;
+  gap:12px;
+  align-items:baseline;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
 .copyEmail:active{ transform: translateY(1px); }
 
-.copyText{
-  display:inline-block;
-}
-
 .copyLabel{
   font-weight:800;
-  margin-right:6px;
+  letter-spacing:.02em;
 }
 
 .copyValue{
   font-weight:650;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: .98rem;
 }
 
 .copyHint{
-  margin-left:8px;
   color:var(--muted);
   font-size:.95rem;
+}
+
+.copyEmail.copied{
+  box-shadow: var(--shadow2);
 }
 
 .copyEmail.copied .copyHint{
@@ -111,24 +118,36 @@ body{
 .socialRow{
   display:flex;
   justify-content:center;
-  gap:10px;
-  margin-bottom:20px;
+  gap:12px;
+  margin: 2px 0 22px;
 }
 
 .iconBtn{
-  width:44px;
-  height:44px;
-  border-radius:12px;
+  width:48px;
+  height:48px;
+  border-radius:16px;
   border:2px solid var(--ink);
   display:grid;
   place-items:center;
   text-decoration:none;
   color:var(--ink);
   background:#fff;
-  font-weight:800;
+  font-weight:850;
+  letter-spacing:.02em;
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, box-shadow .12s ease;
 }
 
-/* MAIN LINKS (compact, centered) */
+.iconBtn:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow2);
+}
+
+.iconBtn:active{
+  transform: translateY(0px);
+}
+
+/* MAIN LINKS */
 .links{
   display:flex;
   flex-direction:column;
@@ -140,24 +159,31 @@ body{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:14px 28px;
+  padding:14px 30px;
   border:3px solid var(--ink);
-  border-radius:26px;
+  border-radius:28px;
   background:#fff;
   color:var(--ink);
   text-decoration:none;
-  font-weight:800;
+  font-weight:850;
   font-size:1.05rem;
-  box-shadow:var(--shadow);
+  box-shadow: var(--shadow);
   white-space:nowrap;
+  transition: transform .12s ease, box-shadow .12s ease;
 }
 
-.block:hover{ transform: translateY(-2px); }
-.block:active{ transform: translateY(0); }
+.block:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow2);
+}
+
+.block:active{
+  transform: translateY(0);
+}
 
 /* FOOTER */
 .footer{
-  margin-top:22px;
+  margin-top:24px;
   text-align:center;
   color:var(--muted);
 }
@@ -165,5 +191,6 @@ body{
 /* Mobile */
 @media (max-width: 420px){
   .logo{ width:150px; height:150px; }
+  .wrap{ padding:34px 0 48px; }
   .block{ padding:14px 22px; }
 }
