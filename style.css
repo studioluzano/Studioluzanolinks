@@ -2,9 +2,8 @@
   --bg:#fff;
   --ink:#111;
   --muted:#555;
-  --border:rgba(0,0,0,.14);
   --shadow:0 10px 24px rgba(0,0,0,.08);
-  --radius:18px;
+  --radius:22px;
 }
 
 *{ box-sizing:border-box; }
@@ -21,11 +20,16 @@ body{
   padding:34px 0 50px;
 }
 
-.header{ display:flex; justify-content:center; margin-bottom:18px; }
+/* LOGO (true square) */
+.header{
+  display:flex;
+  justify-content:center;
+  margin-bottom:16px;
+}
 
 .logo{
-  width:220px;
-  height:160px;
+  width:160px;
+  height:160px;            /* square */
   border:3px solid var(--ink);
   border-radius:26px;
   display:flex;
@@ -33,23 +37,36 @@ body{
   justify-content:center;
   text-decoration:none;
   color:var(--ink);
+  background:#fff;
 }
 
-.logoText{ font-weight:800; letter-spacing:.08em; }
+.logoText{
+  font-weight:800;
+  letter-spacing:.08em;
+}
 
+/* BIO: centered text, NO border */
 .bio{
-  border:2px solid var(--border);
-  border-radius:var(--radius);
+  border:none;             /* remove border */
+  border-radius:18px;
   padding:14px 16px;
+  background:#fff;
   box-shadow:var(--shadow);
-  margin-bottom:14px;
+  margin:0 auto 14px;
 }
 
-.bio p{ margin:0; line-height:1.45; color:var(--muted); }
+.bio p{
+  margin:0;
+  line-height:1.45;
+  color:var(--muted);
+  text-align:center;       /* center justified */
+}
 
+/* CONTACT */
 .contact{
   display:flex;
   align-items:center;
+  justify-content:center;  /* centers the row */
   gap:12px;
   flex-wrap:wrap;
   margin-bottom:18px;
@@ -62,9 +79,14 @@ body{
   text-decoration:none;
   color:var(--ink);
   font-weight:650;
+  background:#fff;
 }
 
-.socials{ display:flex; gap:10px; align-items:center; }
+.socials{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
 
 .iconBtn{
   width:44px;
@@ -75,28 +97,71 @@ body{
   place-items:center;
   text-decoration:none;
   color:var(--ink);
+  background:#fff;
 }
 
 .iconText{ font-weight:800; }
 
-.links{ display:flex; flex-direction:column; gap:14px; }
+/* MAIN LINKS */
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
 
+/* left label + centered rectangle */
 .block{
   border:3px solid var(--ink);
-  border-radius:22px;
-  padding:18px;
+  border-radius:26px;
+  padding:16px 18px;
   text-decoration:none;
   color:var(--ink);
+  background:#fff;
   box-shadow:var(--shadow);
-  transition:transform .12s ease, box-shadow .12s ease;
+  display:grid;
+  grid-template-columns: 160px 1fr;
+  align-items:center;
+  min-height:76px;
+}
+
+.blockTitle{
+  font-weight:800;
+  font-size:1.05rem;
+  line-height:1.1;
+}
+
+/* the centered “empty rectangle” you drew */
+.blockMid{
+  height:34px;
+  width:min(340px, 100%);
+  border:3px solid var(--ink);
+  border-radius:12px;
+  justify-self:center;
 }
 
 .block:hover{
   transform:translateY(-2px);
-  box-shadow:0 14px 28px rgba(0,0,0,.12);
 }
 
-.blockTitle{ display:block; font-weight:800; font-size:1.1rem; }
-.blockHint{ display:block; margin-top:4px; color:var(--muted); font-size:.95rem; }
+.block:active{
+  transform:translateY(0px);
+}
 
-.footer{ margin-top:22px; text-align:center; color:var(--muted); }
+/* FOOTER */
+.footer{
+  margin-top:20px;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* Mobile tweaks */
+@media (max-width: 520px){
+  .block{
+    grid-template-columns: 1fr;
+    gap:10px;
+    text-align:left;
+  }
+  .blockMid{
+    justify-self:start; /* looks nicer stacked */
+  }
+}
