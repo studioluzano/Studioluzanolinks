@@ -63,7 +63,7 @@ body{
   text-align:center;
 }
 
-/* COPY EMAIL */
+/* EMAIL (click-to-copy, no extra text) */
 .copyRow{
   display:flex;
   justify-content:center;
@@ -80,38 +80,38 @@ body{
   cursor:pointer;
   text-align:center;
   color:var(--ink);
-  display:flex;
-  gap:12px;
-  align-items:baseline;
-  justify-content:center;
-  flex-wrap:wrap;
+  position:relative;
 }
 
 .copyEmail:active{ transform: translateY(1px); }
 
-.copyLabel{
-  font-weight:800;
-  letter-spacing:.02em;
-}
-
 .copyValue{
   font-weight:650;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: .98rem;
-}
-
-.copyHint{
-  color:var(--muted);
-  font-size:.95rem;
+  font-size: 1rem;
 }
 
 .copyEmail.copied{
   box-shadow: var(--shadow2);
 }
 
-.copyEmail.copied .copyHint{
-  color:var(--ink);
+/* tiny toast that appears briefly */
+.copyToast{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  background:#fff;
+  border:2px solid var(--ink);
+  border-radius:999px;
+  padding:6px 10px;
   font-weight:800;
+  opacity:0;
+  pointer-events:none;
+}
+
+.copyToast.show{
+  opacity:1;
 }
 
 /* SOCIALS */
@@ -193,4 +193,5 @@ body{
   .logo{ width:150px; height:150px; }
   .wrap{ padding:34px 0 48px; }
   .block{ padding:14px 22px; }
+  .copyEmail{ width: min(520px, 100%); }
 }
