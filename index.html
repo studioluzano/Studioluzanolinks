@@ -4,63 +4,54 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Studio Luzano — Links</title>
-  <meta name="description" content="Studio Luzano links: portfolio, originals, prints, newsletter." />
-
-  <!-- cache-busted css -->
-  <link rel="stylesheet" href="style.css?v=4" />
+  <meta name="description" content="Studio Luzano links: portfolio, originals, prints, newsletter, classes." />
+  <link rel="stylesheet" href="style.css?v=10" />
 </head>
 
 <body>
   <main class="wrap">
 
-    <!-- LOGO -->
-    <header class="header">
-      <a class="logo" href="#" aria-label="Home">
+    <header class="top">
+      <a class="logo" href="https://antonioluzano.com" aria-label="Go to portfolio website">
         <img src="SLlogo.png" alt="Studio Luzano logo" />
       </a>
+
+      <div class="titleBlock">
+        <h1 class="title">Studio Luzano</h1>
+        <p class="subtitle">Illustrator · Concept Artist</p>
+      </div>
     </header>
 
-    <!-- BIO -->
-    <section class="bio" aria-label="Bio">
+    <section class="intro" aria-label="Intro">
       <p>
-        Hi — I’m Antonio (Studio Luzano). I'm an illustrator based in Finland.
+        Hi — I’m Antonio (Studio Luzano). I’m an illustrator based in Finland.
         Here are the best places to see my work and support it.
       </p>
     </section>
 
-    <!-- CLICK-TO-COPY EMAIL -->
-    <section class="copyRow" aria-label="Email">
-      <button
-        class="copyEmail"
-        id="copyEmailBtn"
-        type="button"
-        data-email="antonioluzano@gmail.com"
-        aria-label="Copy email address"
-      >
-        <span class="copyValue">antonioluzano@gmail.com</span>
-        <span class="copyToast" id="copyToast" aria-hidden="true">copied ✓</span>
+    <section class="contact" aria-label="Contact">
+      <h2 class="h">Contact</h2>
+
+      <button class="email" id="copyEmailBtn" type="button" data-email="antonioluzano@gmail.com">
+        antonioluzano@gmail.com <span class="emailHint" id="copyHint">click to copy</span>
       </button>
+
+      <div class="socials">
+        <a href="https://instagram.com/antonioluzano" target="_blank" rel="noopener">Instagram</a>
+        <span class="dot">·</span>
+        <a href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </section>
 
-    <!-- SOCIALS -->
-    <section class="socialRow" aria-label="Socials">
-      <a class="iconBtn" href="https://instagram.com/antonioluzano" target="_blank" rel="noopener">
-        IG
-      </a>
-      <a class="iconBtn" href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener">
-        in
-      </a>
-    </section>
-
-    <!-- MAIN LINKS -->
-    <section class="links" aria-label="Main links">
-      <a class="block" href="https://antonioluzano.com" target="_blank" rel="noopener">Portfolio</a>
-      <a class="block" href="https://holvi.com/shop/studioluzano/" target="_blank" rel="noopener">Originals for sale</a>
-      <a class="block" href="https://www.inprnt.com/profile/studioluzano/" target="_blank" rel="noopener">Print shop</a>
-      <a class="block" href="https://studioluzano.substack.com/" target="_blank" rel="noopener">Newsletter</a>
-      <a class="block" href="https://antonioluzano.com/projects/studio-luzano-koulu.html" target="_blank" rel="noopener">
-        Private Classes
-      </a>
+    <section class="links" aria-label="Links">
+      <h2 class="h">Links</h2>
+      <ul class="list">
+        <li><a href="https://antonioluzano.com" target="_blank" rel="noopener">Portfolio</a></li>
+        <li><a href="https://holvi.com/shop/studioluzano/" target="_blank" rel="noopener">Originals for sale</a></li>
+        <li><a href="https://www.inprnt.com/profile/studioluzano/" target="_blank" rel="noopener">Print shop</a></li>
+        <li><a href="https://studioluzano.substack.com/" target="_blank" rel="noopener">Newsletter</a></li>
+        <li><a href="https://antonioluzano.com/projects/studio-luzano-koulu.html" target="_blank" rel="noopener">Private Classes</a></li>
+      </ul>
     </section>
 
     <footer class="footer">
@@ -73,19 +64,21 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const btn = document.getElementById("copyEmailBtn");
-    const toast = document.getElementById("copyToast");
+    const hint = document.getElementById("copyHint");
 
     btn.addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(btn.dataset.email);
+        hint.textContent = "copied ✓";
         btn.classList.add("copied");
-        toast.classList.add("show");
-
         setTimeout(() => {
-          toast.classList.remove("show");
+          hint.textContent = "click to copy";
           btn.classList.remove("copied");
-        }, 900);
-      } catch (e) {}
+        }, 1000);
+      } catch (e) {
+        hint.textContent = "copy manually";
+        setTimeout(() => (hint.textContent = "click to copy"), 1200);
+      }
     });
   </script>
 </body>
