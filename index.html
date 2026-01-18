@@ -6,7 +6,8 @@
   <title>Studio Luzano — Links</title>
   <meta name="description" content="Studio Luzano links: portfolio, originals, prints, newsletter, classes." />
 
-  <link rel="stylesheet" href="style.css?v=12" />
+  <!-- IMPORTANT: path + cache bust -->
+  <link rel="stylesheet" href="./style.css?v=99" />
 </head>
 
 <body>
@@ -14,8 +15,8 @@
 
     <!-- LOGO -->
     <header class="header">
-      <a class="logo" href="https://antonioluzano.com" aria-label="Go to portfolio">
-        <img src="SLlogo.png" alt="Studio Luzano logo" />
+      <a class="logo" href="https://antonioluzano.com" aria-label="Go to portfolio website">
+        <img src="SLlogo.png" alt="Studio Luzano logo">
       </a>
     </header>
 
@@ -27,7 +28,7 @@
       </p>
     </section>
 
-    <!-- EMAIL -->
+    <!-- EMAIL (tap to copy) -->
     <section class="contact">
       <button
         class="email"
@@ -43,28 +44,45 @@
 
     <!-- SOCIALS -->
     <section class="socials">
-      <a href="https://instagram.com/antonioluzano" target="_blank" rel="noopener">Instagram</a>
-      <span>·</span>
-      <a href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://instagram.com/antonioluzano" target="_blank" rel="noopener">
+        Instagram
+      </a>
+      <a href="https://www.linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener">
+        LinkedIn
+      </a>
     </section>
 
     <!-- LINKS -->
     <section class="links">
-      <a href="https://antonioluzano.com" target="_blank" rel="noopener">Portfolio</a>
-      <a href="https://holvi.com/shop/studioluzano/" target="_blank" rel="noopener">Originals for sale</a>
-      <a href="https://www.inprnt.com/profile/studioluzano/" target="_blank" rel="noopener">Print shop</a>
-      <a href="https://studioluzano.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+      <a href="https://antonioluzano.com" target="_blank" rel="noopener">
+        Portfolio
+      </a>
+
+      <a href="https://holvi.com/shop/studioluzano/" target="_blank" rel="noopener">
+        Originals for sale
+      </a>
+
+      <a href="https://www.inprnt.com/profile/studioluzano/" target="_blank" rel="noopener">
+        Print shop
+      </a>
+
+      <a href="https://studioluzano.substack.com/" target="_blank" rel="noopener">
+        Newsletter
+      </a>
+
       <a href="https://antonioluzano.com/projects/studio-luzano-koulu.html" target="_blank" rel="noopener">
         Private Classes
       </a>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
       <small>© <span id="year"></span> Studio Luzano</small>
     </footer>
 
   </main>
 
+  <!-- SCRIPT -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -76,6 +94,7 @@
         await navigator.clipboard.writeText(btn.dataset.email);
         hint.textContent = "copied ✓";
         btn.classList.add("copied");
+
         setTimeout(() => {
           hint.textContent = "tap to copy";
           btn.classList.remove("copied");
@@ -83,5 +102,6 @@
       } catch (e) {}
     });
   </script>
+
 </body>
 </html>
