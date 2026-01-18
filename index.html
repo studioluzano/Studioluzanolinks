@@ -26,21 +26,25 @@
       </p>
     </section>
 
-    <!-- EMAIL + SOCIALS -->
-    <section class="contact" aria-label="Contact and socials">
-      <a class="pill" href="mailto:YOUR_EMAIL_HERE">email</a>
+    <!-- CLICK-TO-COPY EMAIL -->
+    <section class="copyRow" aria-label="Email">
+      <button class="copyEmail" id="copyEmailBtn" type="button" data-email="YOUR_EMAIL_HERE">
+        <span class="copyLabel">email:</span>
+        <span class="copyValue">YOUR_EMAIL_HERE</span>
+        <span class="copyHint" id="copyHint">click to copy</span>
+      </button>
+    </section>
 
+    <!-- SOCIALS (2 ICONS) -->
+    <section class="contact" aria-label="Socials">
       <div class="socials" aria-label="Social links">
-        <!-- Replace these with your real URLs -->
         <a class="iconBtn" href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
           <span class="iconText">IG</span>
         </a>
         <a class="iconBtn" href="https://behance.net/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Behance">
           <span class="iconText">Be</span>
         </a>
-        <a class="iconBtn" href="https://linkedin.com/in/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <span class="iconText">in</span>
-        </a>
+        <!-- removed one icon (LinkedIn). If you want it back, add it here. -->
       </div>
     </section>
 
@@ -76,7 +80,29 @@
   </main>
 
   <script>
+    // year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // click-to-copy email
+    const btn = document.getElementById("copyEmailBtn");
+    const hint = document.getElementById("copyHint");
+
+    btn.addEventListener("click", async () => {
+      const email = btn.getAttribute("data-email");
+      try {
+        await navigator.clipboard.writeText(email);
+        hint.textContent = "copied!";
+        btn.classList.add("copied");
+        setTimeout(() => {
+          hint.textContent = "click to copy";
+          btn.classList.remove("copied");
+        }, 1200);
+      } catch (e) {
+        // fallback if clipboard API is blocked
+        hint.textContent = "select & copy";
+        setTimeout(() => (hint.textContent = "click to copy"), 1400);
+      }
+    });
   </script>
 </body>
 </html>
