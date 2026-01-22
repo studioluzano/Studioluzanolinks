@@ -189,3 +189,46 @@ a:hover {
     font-size: 1.08rem;
   }
 }
+
+/* --- Tuning / polish --- */
+
+/* slightly smaller canvas so it feels less empty */
+.wrap{
+  max-width: 520px;
+  padding: 36px 22px 48px;
+}
+
+/* logo looks less “floating” */
+.logo img{
+  width: 68px;
+  opacity: 0.95;
+}
+
+/* intro tighter */
+.intro p{
+  margin: 10px auto 14px;
+}
+
+/* make the divider list feel like a designed menu */
+.links{
+  max-width: 420px;      /* shorten the rules */
+  margin: 6px auto 0;    /* center within the page */
+}
+
+/* make items feel more clickable while staying minimal */
+.links a{
+  font-size: 1.08rem;
+  letter-spacing: 0.005em;
+}
+
+/* lighter dividers */
+.links,
+.links a{
+  border-color: rgba(26,26,26,0.14);
+}
+
+/* better hover without looking like a “button” */
+.links a:hover{
+  background: rgba(94, 107, 84, 0.045);
+}
+
