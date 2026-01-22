@@ -1,134 +1,191 @@
-/* --- Base --- */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
+/* style.css */
 
-body{
-  margin: 0;
-  background: #F4F2EC;      /* your site cream */
-  color: #1A1A1A;           /* ink */
-  font-family: "EB Garamond", serif;
-  line-height: 1.6;
+/* ------------------------------
+   BASIC RESET
+------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* --- Layout --- */
-.wrap{
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "EB Garamond", serif;
+  background: #F4F2EC; /* warm cream */
+  color: #1A1A1A;      /* ink */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ------------------------------
+   LAYOUT
+------------------------------ */
+.wrap {
   max-width: 560px;
   margin: 0 auto;
-  padding: 44px 20px 48px;
+  padding: 42px 22px 54px;
   text-align: center;
 }
 
-/* --- Logo --- */
-.header{ margin-bottom: 16px; }
+/* ------------------------------
+   LOGO
+------------------------------ */
+.header {
+  margin-bottom: 18px;
+}
 
-.logo{
-  display: inline-block;
+.logo img {
+  width: 76px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ------------------------------
+   TYPOGRAPHY
+------------------------------ */
+.intro p {
+  margin: 14px auto 18px;
+  font-size: 1.15rem;
+}
+
+.muted {
+  color: #7a8270;
+}
+
+a {
+  color: inherit;
   text-decoration: none;
 }
 
-.logo img{
-  width: 86px;
-  height: auto;
-  display: block;
+/* consistent hover language */
+a:hover {
+  color: #8B775A;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/* --- Intro --- */
-.intro p{
-  margin: 0 0 18px;
-  font-size: 1.05rem;
+/* ------------------------------
+   EMAIL (tap to copy)
+------------------------------ */
+.contact {
+  margin: 14px 0 12px;
 }
 
-/* --- Email copy button --- */
-.contact{ margin: 10px 0 18px; }
-
-.email{
+.email {
   appearance: none;
   background: transparent;
   border: 0;
-  padding: 0;
+  padding: 10px 0 6px;
   cursor: pointer;
+
   font: inherit;
   color: inherit;
 
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
+  border-bottom: 1px solid rgba(26,26,26,0.35);
 }
 
-.emailText{
-  font-weight: 500;
-  border-bottom: 1px solid rgba(139, 119, 90, 0.55); /* subtle brown */
-  padding-bottom: 2px;
+.email:focus {
+  outline: none;
+  border-bottom-color: #8B775A;
 }
 
-.emailHint{
-  font-size: 0.9rem;
-  color: #7a8270; /* your muted green-grey */
+.emailHint {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: #7a8270;
 }
 
-.email.copied .emailText{
-  border-bottom-color: rgba(94, 107, 84, 0.8); /* moss */
+/* copied state */
+.email.copied {
+  border-bottom-color: #5E6B54;
 }
 
-/* Keyboard accessibility without ugly outlines */
-a:focus-visible,
-button:focus-visible{
-  outline: 2px solid rgba(94, 107, 84, 0.35);
-  outline-offset: 4px;
-}
-
-/* --- Socials --- */
-.socials{
+/* ------------------------------
+   SOCIAL LINKS
+------------------------------ */
+.socials {
   display: flex;
   justify-content: center;
   gap: 18px;
-  margin: 10px 0 26px;
+  margin: 12px 0 26px;
 }
 
-.socials a{
-  text-decoration: none;
+.socials a {
+  font-size: 1.02rem;
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
 }
 
-.socials a:hover{
+.socials a:hover {
   border-bottom-color: #8B775A;
-}
-
-/* --- Links list (editorial, not buttony) --- */
-.links{
-  display: grid;
-  gap: 14px;
-  margin: 0 auto 34px;
-}
-
-.links a{
   text-decoration: none;
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: #1A1A1A;
-
-  /* no rounded boxes, no outlines */
-  display: inline-block;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(215, 211, 196, 1); /* soft divider */
 }
 
-.links a:hover{
-  border-bottom-color: #8B775A;
-  color: #8B775A;
+/* ------------------------------
+   MAIN LINKS (list style)
+------------------------------ */
+.links {
+  margin-top: 4px;
+  border-top: 1px solid rgba(26,26,26,0.18);
 }
 
-/* --- Footer --- */
-.footer{
+.links a {
+  display: block;
+  padding: 16px 8px;
+  font-size: 1.12rem;
+  letter-spacing: 0.01em;
+
+  border-bottom: 1px solid rgba(26,26,26,0.18);
+
+  /* subtle tap highlight feel */
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.links a:hover {
+  background: rgba(94, 107, 84, 0.06); /* moss wash */
+  text-decoration: none;
+}
+
+.links a:active {
+  background: rgba(139, 119, 90, 0.10);
+}
+
+/* optional: small note under links */
+.note {
+  margin-top: 14px;
+  font-size: 0.98rem;
+  color: #7a8270;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+.footer {
+  margin-top: 26px;
   color: #9ea88f;
   font-size: 0.85rem;
 }
 
-/* --- Mobile tightening --- */
-@media (max-width: 420px){
-  .wrap{ padding-top: 34px; }
-  .logo img{ width: 78px; }
+/* ------------------------------
+   SMALL SCREENS
+------------------------------ */
+@media (max-width: 380px) {
+  .wrap {
+    padding-top: 34px;
+  }
+  .intro p {
+    font-size: 1.08rem;
+  }
+  .links a {
+    padding: 15px 8px;
+    font-size: 1.08rem;
+  }
 }
