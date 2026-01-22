@@ -6,8 +6,13 @@
   <title>Studio Luzano — Links</title>
   <meta name="description" content="Studio Luzano links: portfolio, originals, prints, newsletter, classes." />
 
+  <!-- Fonts to match your main site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
   <!-- IMPORTANT: path + cache bust -->
-  <link rel="stylesheet" href="./style.css?v=99" />
+  <link rel="stylesheet" href="./style.css?v=100" />
 </head>
 
 <body>
@@ -22,10 +27,7 @@
 
     <!-- INTRO -->
     <section class="intro">
-      <p>
-        Hi I’m Antonio.
-        I’m an illustrator based in Finland.
-      </p>
+      <p>Hi, I’m Antonio — an illustrator based in Finland.</p>
     </section>
 
     <!-- EMAIL (tap to copy) -->
@@ -37,42 +39,24 @@
         data-email="antonioluzano@gmail.com"
         aria-label="Copy email address"
       >
-        antonioluzano@gmail.com
+        <span class="emailText">antonioluzano@gmail.com</span>
         <span class="emailHint" id="copyHint">tap to copy</span>
       </button>
     </section>
 
     <!-- SOCIALS -->
-    <section class="socials">
-      <a href="https://instagram.com/antonioluzano" target="_blank" rel="noopener">
-        Instagram
-      </a>
-      <a href="www.linkedin.com/in/antonio-luzano-52272269"_blank" rel="noopener">
-        LinkedIn
-      </a>
+    <section class="socials" aria-label="Social links">
+      <a href="https://instagram.com/antonioluzano" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://https://www.linkedin.com/in/antonio-luzano-52272269/" target="_blank" rel="noopener">LinkedIn</a>
     </section>
 
     <!-- LINKS -->
-    <section class="links">
-      <a href="https://antonioluzano.com" target="_blank" rel="noopener">
-        Portfolio
-      </a>
-
-      <a href="https://holvi.com/shop/studioluzano/" target="_blank" rel="noopener">
-        Originals for sale
-      </a>
-
-      <a href="https://www.inprnt.com/gallery/studioluzano/" target="_blank" rel="noopener">
-        Print shop
-      </a>
-
-      <a href="https://studioluzano.substack.com/" target="_blank" rel="noopener">
-        Newsletter
-      </a>
-
-      <a href="https://antonioluzano.com/projects/studio-luzano-koulu.html" target="_blank" rel="noopener">
-        Private Classes
-      </a>
+    <section class="links" aria-label="Main links">
+      <a href="https://antonioluzano.com" target="_blank" rel="noopener">Portfolio</a>
+      <a href="https://holvi.com/shop/studioluzano/" target="_blank" rel="noopener">Originals for sale</a>
+      <a href="https://www.inprnt.com/gallery/studioluzano/" target="_blank" rel="noopener">Print shop</a>
+      <a href="https://studioluzano.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+      <a href="https://antonioluzano.com/projects/studio-luzano-koulu.html" target="_blank" rel="noopener">Private classes</a>
     </section>
 
     <!-- FOOTER -->
@@ -82,7 +66,6 @@
 
   </main>
 
-  <!-- SCRIPT -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -102,6 +85,5 @@
       } catch (e) {}
     });
   </script>
-
 </body>
 </html>
